@@ -76,7 +76,7 @@ public class Menu {
                 case 4 -> {
                     System.out.println("Nome do vértice de origem:");
                     String nomeOrigem = scanner.nextLine();
-                    
+
                     System.out.println("Nome do vértice de destino:");
                     String nomeDestino = scanner.nextLine();
                     grafoAtual.removerAresta(nomeOrigem,nomeDestino);
@@ -85,5 +85,15 @@ public class Menu {
                 default -> System.out.println("Opção inválida!");
             }
         }while(opcao !=0);
+    }
+
+    private void abrirGrafo(){
+        if(grafoAtual == null){
+            if(grafoAtual == null){
+                System.out.println("Nenhum grafo foi criado!");
+                return;
+            }
+        }
+        System.out.println("Grafo atual: " + grafoAtual);
     }
 }
