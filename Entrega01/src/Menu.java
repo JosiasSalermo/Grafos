@@ -88,12 +88,14 @@ public class Menu {
     }
 
     private void abrirGrafo(){
-        if(grafoAtual == null){
-            if(grafoAtual == null){
-                System.out.println("Nenhum grafo foi criado!");
-                return;
-            }
+        if(grafoAtual == null) {
+            System.out.println("Nenhum grafo foi criado!");
+            return;
         }
-        System.out.println("Grafo atual: " + grafoAtual);
-    }
+        System.out.println("Grafo atual: ");
+        System.out.println(grafoAtual);
+
+        }
+
+
 }

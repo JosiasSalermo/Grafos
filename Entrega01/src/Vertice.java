@@ -27,4 +27,6 @@ public class Vertice {
     public int hashCode(){
         return nome.hashCode();
     }
+
+
 }
