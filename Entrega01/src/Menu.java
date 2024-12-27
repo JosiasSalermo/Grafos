@@ -142,6 +142,23 @@ public class Menu {
         }while (opcao != 0);
     }
 
+    private void salvarGrafo(){
+        if(grafoAtual == null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
+
+        System.out.println("Digite o nome do arquivo para salvar o grafo:");
+        String nomeArquivo = scanner.nextLine();
+
+        try(FileWriter writer = new FileWriter(nomeArquivo)){
+            writer.write(grafoAtual.toString());
+            System.out.println("Grafo salvo com sucesso em: " + nomeArquivo);
+        }catch(IOException e){
+            System.out.println("Erro ao salvar o grafo: " + e.getMessage());
+        }
+    }
+
 
     private void abrirGrafo(){
         if(grafoAtual == null) {
