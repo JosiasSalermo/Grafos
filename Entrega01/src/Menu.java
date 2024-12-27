@@ -108,43 +108,39 @@ public class Menu {
     }
 
 
-    switch (opcao){
-
-        case 1 -> {
-            System.out.println("Nome do vértice:");
-            String nomeVertice = scanner.nextLine();
-            //scanner.nextLine();
-            grafoAtual.adicionarVertice(nomeVertice);
+    private void informacoesGrafo(){
+        if(grafoAtual == null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
         }
-        case 2 -> {
-            System.out.println("Nome do vértice de origem:");
-            String nomeOrigem = scanner.nextLine();
 
-            System.out.println("Nome do vértice de destino:");
-            String nomeDestino = scanner.nextLine();
-
-            System.out.println("Peso da aresta:");
-            int peso = scanner.nextInt();
+        int opcao;
+        do {
+            System.out.println("1.2 - Informações do Grafo:");
+            System.out.println("1 - Ordem do Grafo");
+            System.out.println("2 - Grau de um Vértice");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
             scanner.nextLine();
-            grafoAtual.adicionarAresta(nomeOrigem,nomeDestino,peso);
-        }
-        case 3 -> {
-            System.out.println("Nome do vértice:");
-            String nomeVertice = scanner.nextLine();
-            grafoAtual.removerVertice(nomeVertice);
-        }
-        case 4 -> {
-            System.out.println("Nome do vértice de origem:");
-            String nomeOrigem = scanner.nextLine();
 
-            System.out.println("Nome do vértice de destino:");
-            String nomeDestino = scanner.nextLine();
-            grafoAtual.removerAresta(nomeOrigem,nomeDestino);
-        }
-        case 0 -> System.out.println("Voltando...");
-        default -> System.out.println("Opção inválida!");
+            switch (opcao) {
+                case 1 -> System.out.println("Ordem do Grafo (número de vértices): " + grafoAtual.getOrdem());
+                case 2 -> {
+                    System.out.println("Digite o nome do vértice para verificar o grau:");
+                    String nomeVertice = scanner.nextLine();
+                    int grau = grafoAtual.getGrau(nomeVertice);
+                    if (grau == -1) {
+                        System.out.println("O vértice não existe.");
+                    } else {
+                        System.out.println("Grau do vértice '" + nomeVertice + "': " + grau);
+                    }
+                }
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        }while (opcao != 0);
     }
-
 
 
     private void abrirGrafo(){
