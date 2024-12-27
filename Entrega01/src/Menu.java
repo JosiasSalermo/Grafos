@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.FileWriter;
 
 public class Menu {
     private Scanner scanner = new Scanner(System.in);
@@ -39,53 +41,64 @@ public class Menu {
         int opcao;
         do{
             System.out.println("Opções de Grafo:");
-            System.out.println("1 - Adicionar vértice");
-            System.out.println("2 - Adicionar aresta");
-            System.out.println("3 - Remover vértice");
-            System.out.println("4 - Remover aresta");
+            System.out.println("1.1 - Criar o Grafo");
+            System.out.println("1.2 - Informações do Grafo");
+            System.out.println("1.3 - Salvar Grafo");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
             scanner.nextLine();
 
             switch (opcao){
-
-                case 1 -> {
-                    System.out.println("Nome do vértice:");
-                    String nomeVertice = scanner.nextLine();
-                    //scanner.nextLine();
-                    grafoAtual.adicionarVertice(nomeVertice);
-                }
-                case 2 -> {
-                    System.out.println("Nome do vértice de origem:");
-                    String nomeOrigem = scanner.nextLine();
-
-                    System.out.println("Nome do vértice de destino:");
-                    String nomeDestino = scanner.nextLine();
-
-                    System.out.println("Peso da aresta:");
-                    int peso = scanner.nextInt();
-                    scanner.nextLine();
-                    grafoAtual.adicionarAresta(nomeOrigem,nomeDestino,peso);
-                }
-                case 3 -> {
-                    System.out.println("Nome do vértice:");
-                    String nomeVertice = scanner.nextLine();
-                    grafoAtual.removerVertice(nomeVertice);
-                }
-                case 4 -> {
-                    System.out.println("Nome do vértice de origem:");
-                    String nomeOrigem = scanner.nextLine();
-
-                    System.out.println("Nome do vértice de destino:");
-                    String nomeDestino = scanner.nextLine();
-                    grafoAtual.removerAresta(nomeOrigem,nomeDestino);
-                }
+                case 1 -> criarGrafo();
+                case 2 -> informacoesGrafo();
+                case 3 -> salvarGrafo();
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
+                
             }
         }while(opcao !=0);
     }
+
+
+    switch (opcao){
+
+        case 1 -> {
+            System.out.println("Nome do vértice:");
+            String nomeVertice = scanner.nextLine();
+            //scanner.nextLine();
+            grafoAtual.adicionarVertice(nomeVertice);
+        }
+        case 2 -> {
+            System.out.println("Nome do vértice de origem:");
+            String nomeOrigem = scanner.nextLine();
+
+            System.out.println("Nome do vértice de destino:");
+            String nomeDestino = scanner.nextLine();
+
+            System.out.println("Peso da aresta:");
+            int peso = scanner.nextInt();
+            scanner.nextLine();
+            grafoAtual.adicionarAresta(nomeOrigem,nomeDestino,peso);
+        }
+        case 3 -> {
+            System.out.println("Nome do vértice:");
+            String nomeVertice = scanner.nextLine();
+            grafoAtual.removerVertice(nomeVertice);
+        }
+        case 4 -> {
+            System.out.println("Nome do vértice de origem:");
+            String nomeOrigem = scanner.nextLine();
+
+            System.out.println("Nome do vértice de destino:");
+            String nomeDestino = scanner.nextLine();
+            grafoAtual.removerAresta(nomeOrigem,nomeDestino);
+        }
+        case 0 -> System.out.println("Voltando...");
+        default -> System.out.println("Opção inválida!");
+    }
+
+
 
     private void abrirGrafo(){
         if(grafoAtual == null) {
