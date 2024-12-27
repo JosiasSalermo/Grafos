@@ -60,6 +60,53 @@ public class Menu {
         }while(opcao !=0);
     }
 
+    private void criarGrafo(){
+        int opcao;
+        do {
+            System.out.println("1.1 - Criar o Grafo:");
+            System.out.println("1 - Adicionar Vértice");
+            System.out.println("2 - Adicionar Aresta");
+            System.out.println("3 - Remover Vértice");
+            System.out.println("4 - Remover Aresta");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> {
+                    System.out.println("Nome do vértice:");
+                    String nomeVertice = scanner.nextLine();
+                    grafoAtual.adicionarVertice(nomeVertice);
+                }
+                case 2 -> {
+                    System.out.println("Nome do vértice de origem:");
+                    String nomeOrigem = scanner.nextLine();
+                    System.out.println("Nome do vértice de destino:");
+                    String nomeDestino = scanner.nextLine();
+                    System.out.println("Peso da aresta:");
+                    int peso = scanner.nextInt();
+                    scanner.nextLine();
+                    grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
+                }
+                case 3 -> {
+                    System.out.println("Nome do vértice:");
+                    String nomeVertice = scanner.nextLine();
+                    grafoAtual.removerVertice(nomeVertice);
+                }
+                case 4 -> {
+                    System.out.println("Nome do vértice de origem:");
+                    String nomeOrigem = scanner.nextLine();
+                    System.out.println("Nome do vértice de destino:");
+                    String nomeDestino = scanner.nextLine();
+                    grafoAtual.removerAresta(nomeOrigem, nomeDestino);
+                }
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        }while (opcao != 0);
+    }
+
 
     switch (opcao){
 
