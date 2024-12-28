@@ -11,3 +11,7 @@
    Crie a criação do grafo
 
    Crie o algoritmo de ordem e grau
+
+2. [ ] Entrega 02
+
+   Crie no menu Operações, as opções para adiconar e remover arestas e vertices.
