@@ -19,7 +19,7 @@ public class Grafo {
         this.arestas = new ArrayList<>();
     }
 
-    // Adicionar um vértice ao grafo
+
     public void adicionarVertice(String nome) {
         Vertice novoVertice = new Vertice(nome);
         if (!vertices.contains(novoVertice)) {

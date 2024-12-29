@@ -54,7 +54,7 @@ public class Menu {
                 case 1 -> criarGrafo();
                 case 2 -> informacoesGrafo();
                 case 3 -> salvarGrafo();
-                case 4 -> operacoesGrafos();
+                case 4 -> operacoesGrafo();
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
 
