@@ -21,6 +21,11 @@ public class Grafo {
 
 
     public void adicionarVertice(String nome) {
+        if(nome == null || nome.isBlank()){ // Ascresentei a verificação de nome vazio
+            System.out.println("Nome do vértice inválido. Não pode ser vazio.");
+            return;
+        }
+
         Vertice novoVertice = new Vertice(nome);
         if (!vertices.contains(novoVertice)) {
             vertices.add(novoVertice);
