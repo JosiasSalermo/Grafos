@@ -172,5 +172,34 @@ public class Menu {
 
     }
 
+    private void operacoesGrafo(){
+        if(grafoAtual -- null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
+
+        int opcao;
+        do {
+            System.out.println("1.4 - Operações:");
+            System.out.println("1.4.1 - Adicionar Vértice");
+            System.out.println("1.4.2 - Adicionar Aresta");
+            System.out.println("1.4.3 - Remover Vértice");
+            System.out.println("1.4.4 - Remover Aresta");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao){
+                case 1 -> adicionarVertice();
+                case 2 -> adicionarAresta();
+                case 3 -> removerVertice();
+                case 4 -> removerAresta();
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        }while (opcao != 0);
+    }
+
 
 }
