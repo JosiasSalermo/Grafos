@@ -2,6 +2,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 
 public class Grafo {
     private boolean orientado;  // Indica se o grafo é orientado
@@ -113,33 +116,7 @@ public class Grafo {
         return sb.toString();
     }
 
-    private void salvarGrafo(){
-        if(grafoAtual == null){
-            System.out.println("Nenhum grafo foi criado!");
-            return;
-        }
 
-        System.out.println("Digite o nome do arquivo para salvar o grafo:");
-        String nomeArquivo = scanner.nextLine();
-
-        try(FileWriter writer = new FileWriter(nomeArquivo)){
-            writer.write(grafoAtual.toString());
-            System.out.println("Grafo salvo com sucesso em: " + nomeArquivo);
-        }catch(IOException e){
-            System.out.println("Erro ao salvar o grafo: " + e.getMessage());
-        }
-    }
-
-
-    private void abrirGrafo(){
-        if(grafoAtual == null) {
-            System.out.println("Nenhum grafo foi criado!");
-            return;
-        }
-        System.out.println("Grafo atual: ");
-        System.out.println(grafoAtual);
-
-    }
 
     public void salvar(String nomeArquivo) {
         try (FileWriter writer = new FileWriter(nomeArquivo)) {
@@ -149,4 +126,19 @@ public class Grafo {
             System.out.println("Erro ao salvar o grafo: " + e.getMessage());
         }
     }
+
+
+    public void abrir(String nomeArquivo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            // Lógica para reconstruir o grafo a partir do arquivo
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                System.out.println("Linha lida: " + linha); // Exemplo de leitura
+                // Aqui você pode interpretar as linhas e reconstruir vértices e arestas
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao abrir o grafo: " + e.getMessage());
+        }
+    }
+
 }

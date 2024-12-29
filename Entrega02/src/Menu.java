@@ -206,5 +206,32 @@ public class Menu {
         grafoAtual.removerAresta(nomeOrigem, nomeDestino);
     }
 
+    private void salvarGrafo(){
+        if(grafoAtual == null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
+
+        System.out.println("Digite o nome do arquivo para salvar o grafo:");
+        String nomeArquivo = scanner.nextLine();
+
+        grafoAtual.salvar(nomeArquivo); // Delegação para a classe Grafo
+    }
+
+    private void abrirGrafo() {
+        System.out.println("Digite o nome do arquivo para abrir o grafo:");
+        String nomeArquivo = scanner.nextLine();
+
+        if (grafoAtual == null) {
+            System.out.println("Criando um novo grafo...");
+            grafoAtual = new Grafo(false, false); // Exemplo: criar um grafo padrão
+        }
+
+        grafoAtual.abrir(nomeArquivo);
+        System.out.println("Grafo atualizado:");
+        System.out.println(grafoAtual);
+    }
+
+
 
 }
