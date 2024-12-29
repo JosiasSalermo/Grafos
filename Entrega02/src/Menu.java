@@ -218,5 +218,11 @@ public class Menu {
         grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
     }
 
+    private void removerVertice(){
+        System.out.println("Nome do vértice:");
+        String nomeVertice = scanner.nextLine();
+        grafoAtual.removerVertice(nomeVertice);
+    }
+
 
 }
