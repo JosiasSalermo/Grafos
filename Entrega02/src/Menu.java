@@ -201,5 +201,22 @@ public class Menu {
         }while (opcao != 0);
     }
 
+    private void adicionarVertice(){
+        System.out.println("Nome do vértice:");
+        String nomeVertice = scanner.nextLine();
+        grafoAtual.adicionarVertice(nomeVertice);
+    }
+
+    private void adicionarAresta(){
+        System.out.println("Nome do vértice de origem:");
+        String nomeOrigem = scanner.nextLine();
+        System.out.println("Nome do vértice de destino:");
+        String nomeDestino = scanner.nextLine();
+        System.out.println("Peso da aresta:");
+        int peso = scanner.nextInt();
+        scanner.nextLine();
+        grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
+    }
+
 
 }
