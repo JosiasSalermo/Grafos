@@ -55,7 +55,7 @@ public class Grafo {
             System.out.println("Os nomes de origem e destino não podem ser vazios.");
             return;
         }
-        
+
         Vertice origem = buscarVertice(nomeOrigem);
         Vertice destino = buscarVertice(nomeDestino);
 
@@ -65,6 +65,12 @@ public class Grafo {
         }
 
         Aresta novaAresta = new Aresta(origem, destino, valorado ? peso : 1);
+
+        if(arestas.contains(novaAresta)){
+            System.out.println("Aresta entre '" + nomeOrigem + "' e '" + nomeDestino + "' já existe.");
+            return;
+        }
+        
         arestas.add(novaAresta);
 
         if (!orientado) { // Se não for orientado, adiciona a aresta inversa
