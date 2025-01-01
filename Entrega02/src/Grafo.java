@@ -43,7 +43,7 @@ public class Grafo {
             return;
         }
 
-        
+
         Vertice vertice = buscarVertice(nome);
         if (vertice != null) {
             vertices.remove(vertice);
@@ -90,6 +90,12 @@ public class Grafo {
 
     // Remover uma aresta específica
     public void removerAresta(String nomeOrigem, String nomeDestino) {
+
+        if(nomeOrigem == null || nomeOrigem.isBlank() || nomeDestino == null || nomeDestino.isBlank()){ // Ascresentei a verificação de nome vazio
+            System.out.println("Os nomes de origem e destino não podem ser vazios.");
+            return;
+        }
+
         Vertice origem = buscarVertice(nomeOrigem);
         Vertice destino = buscarVertice(nomeDestino);
 
@@ -98,7 +104,7 @@ public class Grafo {
             return;
         }
 
-        arestas.removeIf(aresta ->
+        boolean removido = arestas.removeIf(aresta ->
                 aresta.getOrigem().equals(origem) && aresta.getDestino().equals(destino));
 
         if (!orientado) {
@@ -106,7 +112,15 @@ public class Grafo {
                     aresta.getOrigem().equals(destino) && aresta.getDestino().equals(origem));
         }
 
-        System.out.println("Aresta de '" + nomeOrigem + "' para '" + nomeDestino + "' removida.");
+        if (removido) {
+
+            System.out.println("Aresta entre '" + nomeOrigem + "' e '" + nomeDestino + "' não existe.");
+            return;
+        }else{
+            System.out.println("Aresta de '" + nomeOrigem + "' para '" + nomeDestino + "' removida.");
+        }
+
+       
     }
 
     // Buscar um vértice pelo nome
