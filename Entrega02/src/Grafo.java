@@ -37,6 +37,13 @@ public class Grafo {
 
     // Remover um vértice e suas arestas associadas
     public void removerVertice(String nome) {
+
+        if(nome == null || nome.isBlank()){ // Ascresentei a verificação de nome vazio
+            System.out.println("Nome do vértice inválido. Não pode ser vazio.");
+            return;
+        }
+
+        
         Vertice vertice = buscarVertice(nome);
         if (vertice != null) {
             vertices.remove(vertice);
@@ -70,7 +77,7 @@ public class Grafo {
             System.out.println("Aresta entre '" + nomeOrigem + "' e '" + nomeDestino + "' já existe.");
             return;
         }
-        
+
         arestas.add(novaAresta);
 
         if (!orientado) { // Se não for orientado, adiciona a aresta inversa
