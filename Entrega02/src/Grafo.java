@@ -50,6 +50,12 @@ public class Grafo {
 
     // Adicionar uma aresta entre dois vértices
     public void adicionarAresta(String nomeOrigem, String nomeDestino, int peso) {
+
+        if(nomeOrigem == null || nomeOrigem.isBlank() || nomeDestino == null || nomeDestino.isBlank()){ // Ascresentei a verificação de nome vazio
+            System.out.println("Os nomes de origem e destino não podem ser vazios.");
+            return;
+        }
+        
         Vertice origem = buscarVertice(nomeOrigem);
         Vertice destino = buscarVertice(nomeDestino);
 
