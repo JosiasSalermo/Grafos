@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80832c71-8cae-4062-b9ca-a6e466660d9e" name="Changes" comment="" />
+    <list default="true" id="80832c71-8cae-4062-b9ca-a6e466660d9e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Entrega03.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Aresta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Grafo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vertice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entrega02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entrega02/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Entrega02/src/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entrega02/src/Grafo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,21 +34,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "JosiasSalermo"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JosiasSalermo&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/JosiasSalermo/Grafos.git",
-    "accountId": "32088ad0-2827-415d-8da6-6cb2c4c2c074"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JosiasSalermo/Grafos.git&quot;,
+    &quot;accountId&quot;: &quot;32088ad0-2827-415d-8da6-6cb2c4c2c074&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2rDFZNtMnMzJ3OdSOWHOIHYIcmW" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -46,7 +60,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging developer",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Área de Trabalho D/CURSOS/Loiane/JAVA BASICO",
     "node.js.detected.package.eslint": "true",
@@ -61,8 +77,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -75,10 +91,14 @@
       <option name="presentableId" value="Default" />
       <updated>1736085798233</updated>
       <workItem from="1736085800172" duration="1569000" />
+      <workItem from="1736090445666" duration="1107000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>

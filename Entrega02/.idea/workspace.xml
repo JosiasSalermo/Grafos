@@ -5,6 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8016230a-24a0-4efe-8de9-de950df24f18" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Entrega03/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/Entrega03.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/src/Aresta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/src/Grafo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/src/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega03/src/Vertice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo.java" afterDir="false" />
     </list>
@@ -46,21 +56,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Área de Trabalho D/FACULDADE/IF/2024.2/Grafos/Grafos/Entrega02&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Área de Trabalho D/FACULDADE/IF/2024.2/Grafos/Grafos/Entrega02/src/Main.java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Área de Trabalho D/FACULDADE/IF/2024.2/Grafos/Grafos/Entrega02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "D:/Área de Trabalho D/FACULDADE/IF/2024.2/Grafos/Grafos/Entrega02/src/Main.java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,6 +92,7 @@
       <workItem from="1735476705308" duration="1926000" />
       <workItem from="1735493166323" duration="145000" />
       <workItem from="1735750579071" duration="3265000" />
+      <workItem from="1736085720432" duration="939000" />
     </task>
     <servers />
   </component>

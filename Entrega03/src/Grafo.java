@@ -126,7 +126,7 @@ public class Grafo {
             System.out.println("Aresta de '" + nomeOrigem + "' para '" + nomeDestino + "' removida.");
         }
 
-       
+
     }
 
     // Buscar um vértice pelo nome
@@ -184,5 +184,31 @@ public class Grafo {
             System.out.println("Erro ao abrir o grafo: " + e.getMessage());
         }
     }
+
+
+    public String toDot() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(orientado ? "digraph {" : "graph {").append("\n");
+
+        for (Vertice vertice : vertices) {
+            sb.append("    \"").append(vertice.getNome()).append("\";\n");
+        }
+
+        for (Aresta aresta : arestas) {
+            String arrow = orientado ? " -> " : " -- ";
+            sb.append("    \"").append(aresta.getOrigem().getNome())
+                    .append("\"").append(arrow).append("\"")
+                    .append(aresta.getDestino().getNome()).append("\"");
+
+            if (valorado) {
+                sb.append(" [label=\"").append(aresta.getPeso()).append("\"]");
+            }
+            sb.append(";\n");
+        }
+
+        sb.append("}");
+        return sb.toString();
+    }
+
 
 }
