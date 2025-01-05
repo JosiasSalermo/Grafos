@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileWriter;
@@ -229,16 +231,32 @@ public class Menu {
         System.out.println("Digite o nome do arquivo para abrir o grafo:");
         String nomeArquivo = scanner.nextLine();
 
-        if (grafoAtual == null) {
-            System.out.println("Criando um novo grafo...");
-            grafoAtual = new Grafo(false, false); // Exemplo: criar um grafo padrão
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            grafoAtual = new Grafo(false, false); // Grafo padrão
+
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                linha = linha.trim();
+
+                // Ignorar linhas que não representam arestas ou vértices
+                if (linha.isEmpty() || linha.startsWith("{") || linha.startsWith("}")) continue;
+
+                // Adicionar vértices ou arestas
+                if (linha.contains("->") || linha.contains("--")) {
+                    boolean isOrientado = linha.contains("->");
+                    String separator = isOrientado ? "->" : "--";
+                    String[] partes = linha.split(separator);
+                    String origem = partes[0].replaceAll("[\";]", "").trim();
+                    String destino = partes[1].replaceAll("[\";\\[label=\\].*]", "").trim();
+
+                    grafoAtual.adicionarVertice(origem);
+                    grafoAtual.adicionarVertice(destino);
+                    grafoAtual.adicionarAresta(origem, destino, 1); // Peso padrão
+                }
+            }
+
+            System.out.println("Grafo carregado com sucesso!");
+        } catch (IOException e) {
+            System.out.println("Erro ao abrir o grafo: " + e.getMessage());
         }
-
-        grafoAtual.abrir(nomeArquivo);
-        System.out.println("Grafo atualizado:");
-        System.out.println(grafoAtual);
     }
-
-
-
-}
