@@ -28,7 +28,7 @@ public class Menu {
         } while (opcao != 0);
     }
 
-    private void novoGrafo(){
+    private void novoGrafo() {
         System.out.println("O grafo é orientado? (s/n):");
         String orientado = scanner.nextLine();
 
@@ -38,10 +38,10 @@ public class Menu {
         boolean isOrientado = orientado.equalsIgnoreCase("s");
         boolean isValorado = valorado.equalsIgnoreCase("s");
 
-        grafoAtual = new Grafo(isOrientado,isValorado);
+        grafoAtual = new Grafo(isOrientado, isValorado);
 
         int opcao;
-        do{
+        do {
             System.out.println("Opções de Grafo:");
             System.out.println("1.1 - Criar o Grafo");
             System.out.println("1.2 - Informações do Grafo");
@@ -52,7 +52,7 @@ public class Menu {
             opcao = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao){
+            switch (opcao) {
                 case 1 -> criarGrafo();
                 case 2 -> informacoesGrafo();
                 case 3 -> salvarGrafo();
@@ -61,10 +61,10 @@ public class Menu {
                 default -> System.out.println("Opção inválida!");
 
             }
-        }while(opcao !=0);
+        } while (opcao != 0);
     }
 
-    private void criarGrafo(){
+    private void criarGrafo() {
         int opcao;
         do {
             System.out.println("1.1 - Criar o Grafo:");
@@ -108,12 +108,12 @@ public class Menu {
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
             }
-        }while (opcao != 0);
+        } while (opcao != 0);
     }
 
 
-    private void informacoesGrafo(){
-        if(grafoAtual == null){
+    private void informacoesGrafo() {
+        if (grafoAtual == null) {
             System.out.println("Nenhum grafo foi criado!");
             return;
         }
@@ -143,13 +143,12 @@ public class Menu {
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
             }
-        }while (opcao != 0);
+        } while (opcao != 0);
     }
 
 
-
-    private void operacoesGrafo(){
-        if(grafoAtual == null){
+    private void operacoesGrafo() {
+        if (grafoAtual == null) {
             System.out.println("Nenhum grafo foi criado!");
             return;
         }
@@ -166,7 +165,7 @@ public class Menu {
             opcao = scanner.nextInt();
             scanner.nextLine();
 
-            switch (opcao){
+            switch (opcao) {
                 case 1 -> adicionarVertice();
                 case 2 -> adicionarAresta();
                 case 3 -> removerVertice();
@@ -174,16 +173,16 @@ public class Menu {
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
             }
-        }while (opcao != 0);
+        } while (opcao != 0);
     }
 
-    private void adicionarVertice(){
+    private void adicionarVertice() {
         System.out.println("Nome do vértice:");
         String nomeVertice = scanner.nextLine();
         grafoAtual.adicionarVertice(nomeVertice);
     }
 
-    private void adicionarAresta(){
+    private void adicionarAresta() {
         System.out.println("Nome do vértice de origem:");
         String nomeOrigem = scanner.nextLine();
         System.out.println("Nome do vértice de destino:");
@@ -194,13 +193,13 @@ public class Menu {
         grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
     }
 
-    private void removerVertice(){
+    private void removerVertice() {
         System.out.println("Nome do vértice:");
         String nomeVertice = scanner.nextLine();
         grafoAtual.removerVertice(nomeVertice);
     }
 
-    private void removerAresta(){
+    private void removerAresta() {
         System.out.println("Nome do vértice de origem:");
         String nomeOrigem = scanner.nextLine();
         System.out.println("Nome do vértice de destino:");
@@ -208,8 +207,8 @@ public class Menu {
         grafoAtual.removerAresta(nomeOrigem, nomeDestino);
     }
 
-    private void salvarGrafo(){
-        if(grafoAtual == null){
+    private void salvarGrafo() {
+        if (grafoAtual == null) {
             System.out.println("Nenhum grafo foi criado!");
             return;
         }
@@ -217,10 +216,10 @@ public class Menu {
         System.out.println("Digite o nome do arquivo para salvar o grafo:");
         String nomeArquivo = scanner.nextLine();
 
-        try(FileWriter writer = new FileWriter(nomeArquivo)){
+        try (FileWriter writer = new FileWriter(nomeArquivo)) {
             writer.write(grafoAtual.toDot());
             System.out.println("Grafo salvo com sucesso em: " + nomeArquivo);
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Erro ao salvar o grafo: " + e.getMessage());
         }
 
@@ -260,3 +259,6 @@ public class Menu {
             System.out.println("Erro ao abrir o grafo: " + e.getMessage());
         }
     }
+
+
+}
