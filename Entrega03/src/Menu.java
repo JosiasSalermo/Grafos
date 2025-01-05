@@ -215,7 +215,14 @@ public class Menu {
         System.out.println("Digite o nome do arquivo para salvar o grafo:");
         String nomeArquivo = scanner.nextLine();
 
-        grafoAtual.salvar(nomeArquivo); // Delegação para a classe Grafo
+        try(FileWriter writer = new FileWriter(nomeArquivo)){
+            writer.write(grafoAtual.toDot());
+            System.out.println("Grafo salvo com sucesso em: " + nomeArquivo);
+        }catch (IOException e){
+            System.out.println("Erro ao salvar o grafo: " + e.getMessage());
+        }
+
+        //grafoAtual.salvar(nomeArquivo); // Delegação para a classe Grafo
     }
 
     private void abrirGrafo() {

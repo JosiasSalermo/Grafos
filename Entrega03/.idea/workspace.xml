@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80832c71-8cae-4062-b9ca-a6e466660d9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entrega03.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Aresta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Grafo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vertice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entrega02/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Entrega02/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Entrega02/src/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Entrega02/src/Grafo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +50,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Merging developer",
+    "git-widget-placeholder": "developer",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Área de Trabalho D/CURSOS/Loiane/JAVA BASICO",
     "node.js.detected.package.eslint": "true",
@@ -91,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736085798233</updated>
       <workItem from="1736085800172" duration="1569000" />
-      <workItem from="1736090445666" duration="1107000" />
+      <workItem from="1736090445666" duration="1481000" />
     </task>
     <servers />
   </component>
