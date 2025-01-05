@@ -126,7 +126,7 @@ public class Grafo {
             System.out.println("Aresta de '" + nomeOrigem + "' para '" + nomeDestino + "' removida.");
         }
 
-       
+
     }
 
     // Buscar um vértice pelo nome
