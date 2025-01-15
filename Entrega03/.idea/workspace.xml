@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80832c71-8cae-4062-b9ca-a6e466660d9e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/teste2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teste3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teste4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/teste5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/Entrega04.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/src/Aresta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Entrega04/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grafo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +65,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;developer&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Java/jdk-21&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -102,6 +114,13 @@
       <workItem from="1736090445666" duration="4712000" />
       <workItem from="1736100731326" duration="761000" />
       <workItem from="1736101589584" duration="452000" />
+      <workItem from="1736204566192" duration="4351000" />
+      <workItem from="1736210186879" duration="2400000" />
+      <workItem from="1736378980818" duration="5790000" />
+      <workItem from="1736386908231" duration="572000" />
+      <workItem from="1736465057839" duration="6018000" />
+      <workItem from="1736710621735" duration="11704000" />
+      <workItem from="1736982191522" duration="327000" />
     </task>
     <servers />
   </component>
