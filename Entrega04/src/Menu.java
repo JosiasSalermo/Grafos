@@ -49,6 +49,7 @@ public class Menu {
             System.out.println("1.2 - Informações do Grafo");
             System.out.println("1.3 - Salvar Grafo");
             System.out.println("1.4 - Operações com Grafos");
+            System.out.println("1.5 - Problemas");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
@@ -59,6 +60,7 @@ public class Menu {
                 case 2 -> informacoesGrafo();
                 case 3 -> salvarGrafo();
                 case 4 -> operacoesGrafo();
+                case 5 -> problemasGrafo();
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
 

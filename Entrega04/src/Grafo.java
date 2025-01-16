@@ -279,17 +279,17 @@ public class Grafo {
 
     public void dijkstra(String nomeOrigem){
         Vertice origem = buscarVertice(nomeOrigem);
-          if(origem = null){
+          if(origem == null){
               System.out.println("O vértice de origem não existe no Grafo.");
               return;
           }
 
           Map<Vertice, Integer> distancias = new HashMap<>();
-          Map<Vertice, Vertice> predecessores = new hashPriorityQueue<>();
-          PriorityQueue<Vertice> filaPrioridade new Prioridade<>(Comparator.comparingInt(distancia::get);
+        Map<Vertice, Vertice> predecessores = new HashMap<>();
+        PriorityQueue<Vertice> filaPrioridade = new PriorityQueue<>(Comparator.comparingInt(distancias::get));
 
           // Inicialização
-          for(Vertice vestice : vertices){
+          for(Vertice vertice : vertices){
               distancias.put(vertice, Integer.MAX_VALUE);
               predecessores.put(vertice, null);
           }
@@ -311,7 +311,7 @@ public class Grafo {
                         predecessores.put(vizinho, atual);
 
                         // Atualizar a fila e prioridade
-                        filaprioridade.remove(vizinho);
+                        filaPrioridade.remove(vizinho);
                         filaPrioridade.add(vizinho);
                     }
                 }
