@@ -45,11 +45,11 @@ public class Menu {
         int opcao;
         do {
             System.out.println("Opções de Grafo:");
-            System.out.println("1.1 - Criar o Grafo");
-            System.out.println("1.2 - Informações do Grafo");
-            System.out.println("1.3 - Salvar Grafo");
-            System.out.println("1.4 - Operações com Grafos");
-            System.out.println("1.5 - Problemas");
+            System.out.println("1 - [1.1]Criar o Grafo");
+            System.out.println("2 - [1.2]Informações do Grafo");
+            System.out.println("3 - [1.3]Salvar Grafo");
+            System.out.println("4 - [1.4]Operações com Grafos");
+            System.out.println("5 - [1.5]Problemas");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
@@ -71,7 +71,8 @@ public class Menu {
     private void criarGrafo() {
         int opcao;
         do {
-            System.out.println("1.1 - Criar o Grafo:");
+            System.out.println("[1.1]CRIAR O GRAFO:");
+            //System.out.println("1.1 - [1.1]Criar o Grafo:");
             System.out.println("1 - Adicionar Vértice");
             System.out.println("2 - Adicionar Aresta");
             System.out.println("3 - Remover Vértice");
@@ -123,7 +124,7 @@ public class Menu {
 
         int opcao;
         do {
-            System.out.println("1.2 - Informações do Grafo:");
+            System.out.println("[1.2]INFORMAÇÕES DO GRAFO:");
             System.out.println("1 - Ordem do Grafo");
             System.out.println("2 - Grau de um Vértice");
             System.out.println("0 - Voltar");
@@ -157,11 +158,11 @@ public class Menu {
 
         int opcao;
         do {
-            System.out.println("1.4 - Operações:");
-            System.out.println("1.4.1 - Adicionar Vértice");
-            System.out.println("1.4.2 - Adicionar Aresta");
-            System.out.println("1.4.3 - Remover Vértice");
-            System.out.println("1.4.4 - Remover Aresta");
+            System.out.println("[1.4]OPERAÇÕES:");
+            System.out.println("1 - [1.4.1]Adicionar Vértice");
+            System.out.println("2 - [1.4.2]Adicionar Aresta");
+            System.out.println("3 - [1.4.3]Remover Vértice");
+            System.out.println("4 - [1.4.4]Remover Aresta");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
@@ -195,23 +196,6 @@ public class Menu {
         grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
     }
 
-    /*public void adicionarArestaSemMensagem(String origem, String destino, int peso) {
-        Vertice verticeOrigem = grafoAtual.buscarVertice(origem); // Use grafoAtual
-        Vertice verticeDestino = grafoAtual.buscarVertice(destino);
-
-        if (verticeOrigem == null || verticeDestino == null) {
-            return;
-        }
-
-        Aresta novaAresta = new Aresta(verticeOrigem, verticeDestino, peso);
-
-        if (!grafoAtual.getArestas().contains(novaAresta)) {
-            grafoAtual.getArestas().add(novaAresta);
-        }
-    }
-
-
-     */
 
     private void removerVertice() {
         System.out.println("Nome do vértice:");
@@ -356,8 +340,8 @@ public class Menu {
 
         int opcao;
         do {
-            System.out.println("1.5 - Problemas:");
-            System.out.println("1.5.1 - Caminho Mínimo");
+            System.out.println("[1.5]PROBLEMAS:");
+            System.out.println("1 - [1.5.1]Caminho Mínimo");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
