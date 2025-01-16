@@ -285,8 +285,8 @@ public class Grafo {
           }
 
           Map<Vertice, Integer> distancias = new HashMap<>();
-        Map<Vertice, Vertice> predecessores = new HashMap<>();
-        PriorityQueue<Vertice> filaPrioridade = new PriorityQueue<>(Comparator.comparingInt(distancias::get));
+          Map<Vertice, Vertice> predecessores = new HashMap<>();
+          PriorityQueue<Vertice> filaPrioridade = new PriorityQueue<>(Comparator.comparingInt(distancias::get));
 
           // Inicialização
           for(Vertice vertice : vertices){
