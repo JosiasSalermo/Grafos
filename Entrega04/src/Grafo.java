@@ -334,7 +334,12 @@ public class Grafo {
 
     }
 
-
+    private void imprimirCaminho(Map<Vertice, Vertice> predecessores, Vertice destino){
+        if(predecessores.get(destino) != null){
+            imprimirCaminho(predecessores, predecessores.get(destino));
+        }
+        System.out.println(destino.getNome() + " ");
+    }
 
 
 
