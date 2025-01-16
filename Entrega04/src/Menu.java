@@ -348,6 +348,29 @@ public class Menu {
         }
     }
 
+    private void problemasGrafo(){
+        if(grafoAtual == null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
+
+        int opcao;
+        do {
+            System.out.println("1.5 - Problemas:");
+            System.out.println("1.5.1 - Caminho Mínimo");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> caminhoMinimo();
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        }while(opcao != 0);
+    }
+
 
 
 
