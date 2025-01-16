@@ -371,6 +371,12 @@ public class Menu {
         }while(opcao != 0);
     }
 
+    private void caminhoMinimo(){
+        System.out.println("Digite o vértice de origem:");
+        String origem = scanner.nextLine();
+        grafoAtual.dijkstra(origem);
+    }
+
 
 
 
