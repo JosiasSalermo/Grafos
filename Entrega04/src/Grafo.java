@@ -1,11 +1,8 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.Set;
 
 
 public class Grafo {
@@ -279,6 +276,65 @@ public class Grafo {
     public boolean isOrientado() {
         return orientado;
     }
+
+    public void dijkstra(String nomeOrigem){
+        Vertice origem = buscarVertice(nomeOrigem);
+          if(origem = null){
+              System.out.println("O vértice de origem não existe no Grafo.");
+              return;
+          }
+
+          Map<Vertice, Integer> distancias = new HashMap<>();
+          Map<Vertice, Vertice> predecessores = new hashPriorityQueue<>();
+          PriorityQueue<Vertice> filaPrioridade new Prioridade<>(Comparator.comparingInt(distancia::get);
+
+          // Inicialização
+          for(Vertice vestice : vertices){
+              distancias.put(vertice, Integer.MAX_VALUE);
+              predecessores.put(vertice, null);
+          }
+          distancias.put(origem, 0);
+          filaPrioridade.add(origem);
+
+          // Processamento
+        while (!filaPrioridade.isEmpty()){
+            Vertice atual = filaPrioridade.poll();
+
+            // Relaxar as arestas adjacentes
+            for(Aresta aresta : arestas){
+                if (aresta.getOrigem().equals(atual)){
+                    Vertice vizinho = aresta.getDestino();
+                    int novaDistancia = distancias.get(atual) + aresta.getPeso();
+
+                    if(novaDistancia < distancias.get(vizinho)){
+                        distancias.put(vizinho, novaDistancia);
+                        predecessores.put(vizinho, atual);
+
+                        // Atualizar a fila e prioridade
+                        filaprioridade.remove(vizinho);
+                        filaPrioridade.add(vizinho);
+                    }
+                }
+            }
+        }
+
+        // Exibir resultados
+        System.out.println("Menores distâncias a partir do vértice '" + nomeOrigem + "':");
+        for (Vertice vertice : vertices){
+            int distancia = distancias.get(vertice);
+            if(distancia == Integer.MAX_VALUE){
+                System.out.println(" - " + vertice.getNome() + ": Inalcançável");
+            }else{
+                System.out.println(" - " + vertice.getNome() + ": " + distancia);
+                System.out.println(" (Caminho: ");
+                imprimirCaminho(predecessores, vertice);
+                System.out.println(")");
+            }
+        }
+
+    }
+
+
 
 
 
