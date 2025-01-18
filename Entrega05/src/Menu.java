@@ -420,7 +420,17 @@ public class Menu {
         }
     }
 
-
+    private void executarKruskal() {
+        try {
+            List<Aresta> agm = grafoAtual.algoritmoKruskal();
+            System.out.println("Árvore Geradora Mínima (Kruskal):");
+            for (Aresta aresta : agm) {
+                System.out.println(aresta);
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao executar o algoritmo de Kruskal: " + e.getMessage());
+        }
+    }
 
 
 
