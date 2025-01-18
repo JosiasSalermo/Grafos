@@ -163,41 +163,7 @@ public class Grafo {
         sb.append("Arestas: ").append(arestas);
         return sb.toString();
     }
-    /*
-        public void salvar(String nomeArquivo) {
-            try (FileWriter writer = new FileWriter(nomeArquivo)) {
-                writer.write(toString());
-                System.out.println("Grafo salvo com sucesso em: " + nomeArquivo);
-            } catch (IOException e) {
-                System.out.println("Erro ao salvar o grafo: " + e.getMessage());
-            }
-        }
 
-        public void abrir(String nomeArquivo) {
-            try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
-                // Lógica para reconstruir o grafo a partir do arquivo
-                String linha;
-                while ((linha = reader.readLine()) != null) {
-                    System.out.println("Linha lida: " + linha); // Exemplo de leitura
-                    // Aqui você pode interpretar as linhas e reconstruir vértices e arestas
-                }
-            } catch (IOException e) {
-                System.out.println("Erro ao abrir o grafo: " + e.getMessage());
-            }
-        }
-
-         public boolean existeAresta(String origem, String destino) {
-            Vertice verticeOrigem = buscarVertice(origem);
-            Vertice verticeDestino = buscarVertice(destino);
-
-            if (verticeOrigem == null || verticeDestino == null) {
-                return false;
-            }
-
-            return arestas.stream().anyMatch(aresta ->
-                    aresta.getOrigem().equals(verticeOrigem) && aresta.getDestino().equals(verticeDestino));
-        }
-    */
     public String toDot() {
         StringBuilder sb = new StringBuilder();
         sb.append(orientado ? "digraph {" : "graph {").append("\n");
@@ -341,6 +307,40 @@ public class Grafo {
         System.out.println(destino.getNome() + " ");
     }
 
+    public List<Aresta> algoritmoPrim(String nomeVerticeInicial){
+        Vertice inicial = buscarVertice(nomeVerticeInicial);
+        if (inicial == null){
+            throw new IllegalArgumentException("Vértice inicial não encontrado.");
+        }
+
+        List<Aresta> agm = new ArrayList<>();
+        Set<Vertice> visitados = new HashSet<>();
+        PriorityQueue<Aresta> filaPrioridade = new PriorityQueue<>(Comparator.comparingInt(Aresta::getPeso));
+
+        visitados.add(inicial);
+        for (Aresta aresta : arestas){
+            if (aresta.getOrigem().equals(inicial)){
+                filaPrioridade.add(aresta);
+            }
+        }
+
+        while (!filaPrioridade.isEmpty() && visitados.size() < vertices.size()){
+            Aresta menorAresta = filaPrioridade.poll();
+            Vertice destino = menorAresta.getDestino();
+
+            if(!visitados.contains(destino)){
+                visitados.add(destino);
+                agm.add(menorAresta);
+
+                for(Aresta aresta : arestas){
+                    if(aresta.getOrigem().equals(destino) && !visitados.contains(aresta.getDestino())){
+                        filaPrioridade.add(aresta);
+                    }
+                }
+            }
+        }
+        return agm;
+    }
 
 
 }
