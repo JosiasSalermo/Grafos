@@ -372,14 +372,36 @@ public class Grafo {
         public UnionFind(int tamanho){
             pai = new int[tamanho];
             rank = new int[tamanho];
-            for (int i = 0; 1 < tamanho; i + 1){
+            for (int i = 0; 1 < tamanho; i++){
                 pai[1] = i;
                 rank[i] = 0;
             }
         }
 
-        
+        public int encontrar(int x){
+            if(pai[x] != x){
+                pai[x] = encontrar(pai[x]);
+            }
+            return pai[x];
+        }
+
+        public void unir(int x, int y){
+            int raizX = encontrar(x);
+            int raizY = encontrar(y);
+
+            if(raizX != raizY){
+                if(rank[raizX] > rank[raizY]){
+                    pai[raizY] = raizX;
+                }else if(rank[raizX] < rank[raizY]){
+                    pai[raizX] = raizY;
+                }else{
+                    pai[raizY] = raizX;
+                    rank[raizX]++;
+                }
+            }
+        }
+        public boolean conectados(int x, int y){
+            return encontrar(x) == encontrar(y);
+        }
     }
-
-
 }
