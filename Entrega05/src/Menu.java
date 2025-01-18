@@ -405,7 +405,20 @@ public class Menu {
         } while (opcao != 0);
     }
 
+    private void executarPrim() {
+        System.out.println("Digite o vértice inicial para o algoritmo de Prim:");
+        String verticeInicial = scanner.nextLine();
 
+        try {
+            List<Aresta> agm = grafoAtual.algoritmoPrim(verticeInicial);
+            System.out.println("Árvore Geradora Mínima (Prim):");
+            for (Aresta aresta : agm) {
+                System.out.println(aresta);
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 
 
