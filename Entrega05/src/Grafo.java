@@ -343,4 +343,27 @@ public class Grafo {
     }
 
 
+    public List<Aresta> algoritmoKruskal(){
+        List<Aresta agm = new ArrayList<>();
+        Unionfind unionFind = new UnionFind(vertices.size());
+
+        List<Aresta> arestasOrdenadas = new ArrayList<>(arestas);
+        arestasOrdenadas.sort(Comparator.comparingInt(Aresta::getPeso));
+
+        for (Aresta aresta : arestasOrdenadas){
+            Vertice origem = aresta.getOrigem();
+            Vertice destino = aresta.getDestino();
+
+            int idOrigem = vertices.indexOf((origem));
+            int idOrigem = vertices.indexOf(destino);
+
+            if(!unionFind.conectados(idOrigem, idDestino)){
+                unionFind.unir(idOrigem, idDestino);
+                agm.add(aresta);
+            }
+        }
+        return agm;
+    }
+
+
 }
