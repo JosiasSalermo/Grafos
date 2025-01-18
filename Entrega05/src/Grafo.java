@@ -355,7 +355,7 @@ public class Grafo {
             Vertice destino = aresta.getDestino();
 
             int idOrigem = vertices.indexOf((origem));
-            int idOrigem = vertices.indexOf(destino);
+            int idDestino = vertices.indexOf(destino);
 
             if(!unionFind.conectados(idOrigem, idDestino)){
                 unionFind.unir(idOrigem, idDestino);
@@ -363,6 +363,22 @@ public class Grafo {
             }
         }
         return agm;
+    }
+
+    private static class UnionFind{
+        private int[] pai;
+        private int[] rank;
+
+        public UnionFind(int tamanho){
+            pai = new int[tamanho];
+            rank = new int[tamanho];
+            for (int i = 0; 1 < tamanho; i + 1){
+                pai[1] = i;
+                rank[i] = 0;
+            }
+        }
+
+        
     }
 
 
