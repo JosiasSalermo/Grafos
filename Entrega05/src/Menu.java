@@ -432,6 +432,10 @@ public class Menu {
         }
     }
 
+    private void menuCaminhoMinimo() {
+        System.out.println("Função para Caminho Mínimo ainda não implementada.");
+    }
+
 
 
 
