@@ -344,8 +344,8 @@ public class Grafo {
 
 
     public List<Aresta> algoritmoKruskal(){
-        List<Aresta agm = new ArrayList<>();
-        Unionfind unionFind = new UnionFind(vertices.size());
+        List<Aresta> agm = new ArrayList<>();
+        UnionFind unionFind = new UnionFind(vertices.size());
 
         List<Aresta> arestasOrdenadas = new ArrayList<>(arestas);
         arestasOrdenadas.sort(Comparator.comparingInt(Aresta::getPeso));

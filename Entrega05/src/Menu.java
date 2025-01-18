@@ -60,7 +60,7 @@ public class Menu {
                 case 2 -> informacoesGrafo();
                 case 3 -> salvarGrafo();
                 case 4 -> operacoesGrafo();
-                case 5 -> problemasGrafo();
+                case 5 -> menuProblemas(); // Entrega 05
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
 
@@ -194,24 +194,6 @@ public class Menu {
         scanner.nextLine();
         grafoAtual.adicionarAresta(nomeOrigem, nomeDestino, peso);
     }
-
-    /*public void adicionarArestaSemMensagem(String origem, String destino, int peso) {
-        Vertice verticeOrigem = grafoAtual.buscarVertice(origem); // Use grafoAtual
-        Vertice verticeDestino = grafoAtual.buscarVertice(destino);
-
-        if (verticeOrigem == null || verticeDestino == null) {
-            return;
-        }
-
-        Aresta novaAresta = new Aresta(verticeOrigem, verticeDestino, peso);
-
-        if (!grafoAtual.getArestas().contains(novaAresta)) {
-            grafoAtual.getArestas().add(novaAresta);
-        }
-    }
-
-
-     */
 
     private void removerVertice() {
         System.out.println("Nome do vértice:");
@@ -376,6 +358,34 @@ public class Menu {
         String origem = scanner.nextLine();
         grafoAtual.dijkstra(origem);
     }
+
+    // Entrega 05
+    private void menuProblemas() {
+        if (grafoAtual == null) {
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
+
+        int opcao;
+        do {
+            System.out.println("1.5 - Problemas:");
+            System.out.println("1.5.1 - Caminho Mínimo");
+            System.out.println("1.5.2 - Árvore Geradora");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> menuCaminhoMinimo();
+                case 2 -> menuArvoreGeradora();
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (opcao != 0);
+    }
+
+
 
 
 
