@@ -385,6 +385,26 @@ public class Menu {
         } while (opcao != 0);
     }
 
+    private void menuArvoreGeradora() {
+        int opcao;
+        do {
+            System.out.println("1.5.2 - Árvore Geradora:");
+            System.out.println("1.5.2.1 - Algoritmo de Prim");
+            System.out.println("1.5.2.2 - Algoritmo de Kruskal");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção:");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> executarPrim();
+                case 2 -> executarKruskal();
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (opcao != 0);
+    }
+
 
 
 
