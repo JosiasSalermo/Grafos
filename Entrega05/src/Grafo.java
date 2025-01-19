@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import br.com.davesmartins.api.Graph;
 
 
 public class Grafo {
@@ -402,6 +403,16 @@ public class Grafo {
         }
         public boolean conectados(int x, int y){
             return encontrar(x) == encontrar(y);
+        }
+    }
+
+    public void visualizarGrafo(String caminhoImagem){
+        try{
+            String dot = toDot();
+            Graph.createStringDotToPng(dot, caminhoImagem);
+            System.out.println("Imagem gerada em: " + caminhoImagem);
+        } catch (IOException e){
+            System.out.println("Erro ao gerar a imagem do grafo:" + e.getMessage());
         }
     }
 }
