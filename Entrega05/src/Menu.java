@@ -437,7 +437,17 @@ public class Menu {
         System.out.println("Função para Caminho Mínimo ainda não implementada.");
     }
 
+    private void visualizarGrafo(){
+        if(grafoAtual == null){
+            System.out.println("Nenhum grafo foi criado!");
+            return;
+        }
 
+    System.out.println("Digite o caminho para salvar a imagem (ex.: grafo.png):");
+        String caminhoImagem = scanner.nextLine();
+
+        grafoAtual.visualizarGrafo(caminhoImagem);
+    }
 
 
 
