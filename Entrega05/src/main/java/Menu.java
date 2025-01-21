@@ -1,3 +1,5 @@
+import br.com.davesmartins.api.Graph;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.HashSet;
@@ -456,11 +458,16 @@ public class Menu {
         System.out.println("Digite o caminho para salvar a imagem (ex.: grafo.png):");
         String caminhoImagem = scanner.nextLine();
 
+        try {
+            String dotRepresentation = grafoAtual.toDot(); // Gere a representação DOT do grafo
+            Graph.createStringDotToPng(dotRepresentation, caminhoImagem); // Use a API para gerar a imagem
+            System.out.println("Grafo visualizado e salvo em: " + caminhoImagem);
+        } catch (IOException e) {
+            System.out.println("Erro ao gerar a imagem: " + e.getMessage());
+        }
+        
 
-/*
-        grafoAtual.visualizarGrafo(caminhoImagem);
 
- */
     }
 
 
