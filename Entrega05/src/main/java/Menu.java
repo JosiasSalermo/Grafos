@@ -1,12 +1,10 @@
 import br.com.davesmartins.api.Graph;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.awt.*;
+import java.io.*;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.io.IOException;
-import java.io.FileWriter;
 import java.util.Set;
 
 
@@ -455,17 +453,29 @@ public class Menu {
             return;
         }
 
-        System.out.println("Digite o caminho para salvar a imagem (ex.: grafo.png):");
-        String caminhoImagem = scanner.nextLine();
+        System.out.println("Digite o nome do arquivo para salvar a imagem (ex.: grafo.png):");
+        String nomeImagem = scanner.nextLine();
 
         try {
             String dotRepresentation = grafoAtual.toDot(); // Gere a representação DOT do grafo
-            Graph.createStringDotToPng(dotRepresentation, caminhoImagem); // Use a API para gerar a imagem
-            System.out.println("Grafo visualizado e salvo em: " + caminhoImagem);
+            String caminhoCompleto = System.getProperty("user.dir") + "/" + nomeImagem; // Caminho absoluto
+            Graph.createStringDotToPng(dotRepresentation, nomeImagem); // Use a API para gerar a imagem
+            System.out.println("Grafo visualizado e salvo em: " + nomeImagem);
+
+            // Abrir a imagem automaticamente
+            File imagem = new File(caminhoCompleto);
+            if (imagem.exists()) {
+                Desktop desktop = Desktop.getDesktop();
+                desktop.open(imagem);
+            } else {
+                System.out.println("A imagem não foi encontrada para ser aberta automaticamente.");
+            }
         } catch (IOException e) {
-            System.out.println("Erro ao gerar a imagem: " + e.getMessage());
+            System.out.println("Erro ao gerar ou abrir a imagem: " + e.getMessage());
+        } catch (Exception e){
+            System.out.println("Erro inesperado: " + e.getMessage());
         }
-        
+
 
 
     }

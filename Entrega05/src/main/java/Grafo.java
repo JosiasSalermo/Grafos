@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.util.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
-//import br.com.davesmartins.api.Graph;
+import br.com.davesmartins.api.Graph;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
