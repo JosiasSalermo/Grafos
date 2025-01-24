@@ -224,18 +224,26 @@ public class Menu {
             return;
         }
 
-        System.out.println("Digite o nome do arquivo para salvar o grafo:");
+        System.out.println("Digite o nome do arquivo para salvar o grafo (ex: grafo):");
         String nomeArquivo = scanner.nextLine();
+        if (!nomeArquivo.endsWith(".dot")) {
+            nomeArquivo += ".dot"; // Garante a extensão correta
+        }
 
-        String dotContent = grafoAtual.toDot();
-        System.out.println("Conteúdo do arquivo DOT:\n" + dotContent); // Teste: Exibe o conteúdo no console
 
-        try (FileWriter writer = new FileWriter(nomeArquivo)) {
-            writer.write(dotContent);
-            System.out.println("Grafo salvo com sucesso em: " + System.getProperty("user.dir") + "/" + nomeArquivo);
+        try {
+            // Representação DOT do grafo
+            String dotRepresentation = grafoAtual.toDot();
+            String caminhoDot = System.getProperty("user.dir") + "/" + nomeArquivo;
+
+            // Salvar o arquivo DOT
+            try (FileWriter writer = new FileWriter(caminhoDot)) {
+                writer.write(dotRepresentation);
+                System.out.println("Arquivo DOT salvo em: " + caminhoDot);
+            }
 
         } catch (IOException e) {
-            System.out.println("Erro ao salvar o grafo: " + e.getMessage());
+            System.out.println("Erro ao salvar o arquivo DOT: " + e.getMessage());
         }
     }
 
@@ -283,7 +291,7 @@ public class Menu {
     }
 
     private void abrirGrafo() {
-        System.out.println("Digite o nome do arquivo para abrir o grafo:");
+        System.out.println("Digite o nome do arquivo para abrir o grafo (ex: grafo.dot):");
         String nomeArquivo = scanner.nextLine();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
@@ -453,25 +461,21 @@ public class Menu {
             return;
         }
 
-        System.out.println("Digite o nome do arquivo para salvar a imagem (ex.: grafo.png):");
+        System.out.println("Digite o nome do arquivo para salvar a imagem (ex: grafo.png):");
         String nomeImagem = scanner.nextLine();
+        if(!nomeImagem.endsWith(".png")){
+            nomeImagem += ".png";
+        }
 
         try {
             String dotRepresentation = grafoAtual.toDot(); // Gere a representação DOT do grafo
             String caminhoCompleto = System.getProperty("user.dir") + "/" + nomeImagem; // Caminho absoluto
-            Graph.createStringDotToPng(dotRepresentation, nomeImagem); // Use a API para gerar a imagem
-            System.out.println("Grafo visualizado e salvo em: " + nomeImagem);
+            Graph.createStringDotToPng(dotRepresentation, caminhoCompleto); // Use a API para gerar a imagem
+            System.out.println("Imagem do grafo salva em: " + caminhoCompleto);
 
-            // Abrir a imagem automaticamente
-            File imagem = new File(caminhoCompleto);
-            if (imagem.exists()) {
-                Desktop desktop = Desktop.getDesktop();
-                desktop.open(imagem);
-            } else {
-                System.out.println("A imagem não foi encontrada para ser aberta automaticamente.");
-            }
+
         } catch (IOException e) {
-            System.out.println("Erro ao gerar ou abrir a imagem: " + e.getMessage());
+            System.out.println("Erro ao gerar  a imagem: " + e.getMessage());
         } catch (Exception e){
             System.out.println("Erro inesperado: " + e.getMessage());
         }
