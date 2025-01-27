@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 public class Grafo {
     private boolean orientado;  // Indica se o grafo é orientado
     private boolean valorado;   // Indica se o grafo é valorado
+
+
     private List<Vertice> vertices; // Lista de vértices do grafo
     private List<Aresta> arestas;   // Lista de arestas do grafo
 
@@ -413,16 +415,20 @@ public class Grafo {
         }
     }
 
-    /*
-    public void visualizarGrafo(String caminhoImagem){
-        try{
-            String dot = toDot();
-            Graph.createStringDotToPng(dot, caminhoImagem);
-            System.out.println("Imagem gerada em: " + caminhoImagem);
-        } catch (IOException e){
-            System.out.println("Erro ao gerar a imagem do grafo:" + e.getMessage());
-        }
+    public boolean isValorado() {
+        return valorado;
     }
 
-     */
+
+    public List<Vertice> getVizinhos(Vertice vertice) {
+        List<Vertice> vizinhos = new ArrayList<>();
+        for (Aresta aresta : arestas) {
+            if (aresta.getOrigem().equals(vertice)) {
+                vizinhos.add(aresta.getDestino());
+            }
+        }
+        return vizinhos;
+    }
+
+
 }
