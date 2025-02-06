@@ -1,67 +1,32 @@
 import java.util.*;
 
-public class Malgrange {
-    public static List<List<Vertice>> grafoReduzido(Grafo grafo) {
-        Stack<Vertice> pilha = new Stack<>();
-        Set<Vertice> visitados = new HashSet<>();
+public class Malgrange{
+    public static List<List<Vertice>> grafoReduzido(Grafo grafo){
+        Stack<Vertice> pilha = new Stack<>(); // pilha de vértices
+        Set<Vertice> visitados = new HashSet<>(); // conjunto de vértices visitados
 
-        // 1ª etapa: DFS para calcular a ordem de finalização
-        for (Vertice vertice : grafo.getVertices()) {
-            if (!visitados.contains(vertice)) {
+        // 1ª Etapa: Percorre todos os vértices do grafo para garantir que a
+        // primeira  DFS.
+        for(Vertice vertice: grafo.getVertice()){
+            if(!visitados.contains(vertice)){
                 dfs1(grafo, vertice, visitados, pilha);
             }
         }
 
-        // 2ª etapa: Transpor o grafo
+        // 2ª Etapa: Criação do Grafo transposto
         Grafo transposto = transporGrafo(grafo);
-        visitados.clear(); // Limpar o conjunto de visitados para a próxima etapa
+        visitados.clear(); // limpa o conjunto de vértices visitados
 
-        // 3ª etapa: DFS no grafo transposto para encontrar os CFCs
-        List<List<Vertice>> componentes = new ArrayList<>();
-        while (!pilha.isEmpty()) {
-            Vertice vertice = pilha.pop();
-            if (!visitados.contains(vertice)) {
+        // 3ª Etapa: Esse trecho de código é responsável por encontrar os
+        // Componentes Fortemente Conexos (CFCs) de um grafo transposto
+        List<List<Vertice>> componentes = new ArrayList<>(); // Cria uma lista de listas para armazenar os componentes fortemente conexos.
+        while(!pilha.isEmpty()){ // Enquanto houver vértices na pilha (carregada na primeira DFS), eles serão processados.
+            Vertice vertice = pilha.pop(); // Remove e retorna o vértice do topo da pilha
+            if (!visitados.contains(vertice)){ // Verifica se o vértice já foi visitado
                 List<Vertice> componente = new ArrayList<>();
                 dfs2(transposto, vertice, visitados, componente);
                 componentes.add(componente);
             }
         }
-
         return componentes;
     }
-
-    private static void dfs1(Grafo grafo, Vertice vertice, Set<Vertice> visitados, Stack<Vertice> pilha) {
-        visitados.add(vertice);
-        for (Vertice vizinho : grafo.getVizinhos(vertice)) { // Adicione getVizinhos na classe Grafo
-            if (!visitados.contains(vizinho)) {
-                dfs1(grafo, vizinho, visitados, pilha);
-            }
-        }
-        pilha.push(vertice);
-    }
-
-    private static void dfs2(Grafo grafo, Vertice vertice, Set<Vertice> visitados, List<Vertice> componente) {
-        visitados.add(vertice);
-        componente.add(vertice);
-        for (Vertice vizinho : grafo.getVizinhos(vertice)) {
-            if (!visitados.contains(vizinho)) {
-                dfs2(grafo, vizinho, visitados, componente);
-            }
-        }
-    }
-
-    private static Grafo transporGrafo(Grafo grafo) {
-        Grafo transposto = new Grafo(grafo.isOrientado(), grafo.isValorado());
-        for (Vertice vertice : grafo.getVertices()) {
-            transposto.adicionarVerticeSemMensagem(vertice.getNome());
-        }
-        for (Aresta aresta : grafo.getArestas()) {
-            transposto.adicionarArestaSemMensagem(
-                    aresta.getDestino().getNome(),
-                    aresta.getOrigem().getNome(),
-                    aresta.getPeso()
-            );
-        }
-        return transposto;
-    }
-}
