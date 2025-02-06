@@ -1,32 +1,86 @@
 import java.util.*;
 
-public class Malgrange{
-    public static List<List<Vertice>> grafoReduzido(Grafo grafo){
-        Stack<Vertice> pilha = new Stack<>(); // pilha de vértices
-        Set<Vertice> visitados = new HashSet<>(); // conjunto de vértices visitados
 
-        // 1ª Etapa: Percorre todos os vértices do grafo para garantir que a
-        // primeira  DFS.
-        for(Vertice vertice: grafo.getVertice()){
-            if(!visitados.contains(vertice)){
+public class Malgrange {
+    /**
+     * Método para encontrar os componentes Fortemente Conexos (CFCs) em um grafo
+     * utilizando o algoritmo de Kosaraju.
+     * */
+
+    public static List<List<Vertice>> grafoReduzido(Grafo grafo){
+        Stack<Vertice> pilha = new Stack<>(); // Pilha para armazenar a ordem de finalização da DFS
+        Set<Vertice> visitados = new HashSet<>(); // Conjunto para rastrear os vértices visitados
+
+        // 1ª etapa: DFS para calcular a ordem de finalização
+        for (Vertice vertice : grafo.getVertices()){
+            if (!visitados.contains(vertice)){
                 dfs1(grafo, vertice, visitados, pilha);
             }
         }
 
-        // 2ª Etapa: Criação do Grafo transposto
+        // 2ª etapa: Transpor o grafo
         Grafo transposto = transporGrafo(grafo);
-        visitados.clear(); // limpa o conjunto de vértices visitados
+        visitados.clear(); // Limpar o conjunto de visitados para a próxima etapa
 
-        // 3ª Etapa: Esse trecho de código é responsável por encontrar os
-        // Componentes Fortemente Conexos (CFCs) de um grafo transposto
-        List<List<Vertice>> componentes = new ArrayList<>(); // Cria uma lista de listas para armazenar os componentes fortemente conexos.
-        while(!pilha.isEmpty()){ // Enquanto houver vértices na pilha (carregada na primeira DFS), eles serão processados.
-            Vertice vertice = pilha.pop(); // Remove e retorna o vértice do topo da pilha
-            if (!visitados.contains(vertice)){ // Verifica se o vértice já foi visitado
+
+        // 3ª etapa: DFS no Grafo transposto para encontrar os CFCs
+        List<List<Vertice>> componentes = new ArrayList<>();
+        while (!pilha.isEmpty()){
+            Vertice vertice = pilha.pop(); // Pega o vértice com maior ordem de finalização
+            if (!visitados.contains(vertice)){
                 List<Vertice> componente = new ArrayList<>();
                 dfs2(transposto, vertice, visitados, componente);
-                componentes.add(componente);
+                componentes.add(componente); // Adiciona o componente encontrado
             }
         }
         return componentes;
     }
+
+    // DFS para empilhar os vértices conforme a ordem de finalização.
+    private static void dfs1(Grafo grafo, Vertice vertice, Set<Vertice> visitados, Stack<Vertice> pilha) {
+        visitados.add(vertice); // Marca o vértice como visitado
+        for (Vertice vizinho : grafo.getVizinhos(vertice)){ // Percorre os visinhos do vértice
+            if (!visitados.contains(vizinho)){
+                dfs1(grafo, vizinho, visitados, pilha);
+            }
+        }
+        pilha.push(vertice); // Adiciona o vértice na pilha após a recursão
+
+
+    }
+
+
+    // DFS no Grafo transposto para encontrar os CFCs.
+    private static void dfs2(Grafo grafo, Vertice vertice, Set<Vertice> visitados, List<Vertice> componente){
+        visitados.add(vertice);
+        componente.add(vertice);
+        for(Vertice vizinho : grafo.getVizinhos(vertice)){
+            if (!visitados.contains(vizinho)){
+                dfs2(grafo, vizinho, visitados, componente);
+            }
+        }
+    }
+
+
+    // Método para transpor o grafo (inverter as direções das arestas)
+    private static Grafo transporGrafo(Grafo grafo){
+        Grafo transposto = new Grafo(grafo.isOrientado(), grafo.isValorado()); // Cria um novo grafo com as mesmas propriedades
+
+
+        // Adiciona os vértices ao grafo transposto
+        for(Vertice vertice : grafo.getVertices()){
+            transposto.adicionarVerticeSemMensagem(vertice.getNome());
+        }
+
+        // Adiciona as arestas invertidas
+        for(Aresta aresta : grafo.getArestas()){
+            transposto.adicionarArestaSemMensagem(
+                    aresta.getDestino().getNome(), // Origem vira destino
+                    aresta.getOrigem().getNome(), // Destino vira origem
+                    aresta.getPeso()
+            );
+
+        }
+        return transposto;
+    }
+}
