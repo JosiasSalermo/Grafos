@@ -490,7 +490,13 @@ public class Menu {
         grafoAtual.buscaEmLargura(verticeInicial);
     }
 
-    
+    private void executarBuscaEmProfundidade(){
+        System.out.println("Digite o vértice inicial para a busca em produndidade:");
+        String verticeInicial = scanner.nextLine();
+        grafoAtual.buscaEmProfundidade(verticeInicial);
+    }
+
+
 
 
 
