@@ -484,6 +484,16 @@ public class Menu {
 
     }
 
+    private void executarbuscaEmLargura(){
+        System.out.println("Digite o vértice inicial para a busca em largura:");
+        String verticeInicial = scanner.nextLine();
+        grafoAtual.buscaEmLargura(verticeInicial);
+    }
+
+    
+
+
+
 
 
 

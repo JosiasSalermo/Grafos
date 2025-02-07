@@ -435,8 +435,8 @@ public class Grafo {
             return ;
         }
 
-        Set<Vertice> visitados new HashSet<>(); // Conjunto para armazenar vértices visitados
-        Queue<Vertice> fila = new LinkdList<>(); // Fila para a ordem de exploração (FIFO)
+        Set<Vertice> visitados = new HashSet<>(); // Conjunto para armazenar vértices visitados
+        Queue<Vertice> fila = new LinkedList<>(); // Fila para a ordem de exploração (FIFO)
 
         fila.add(inicial); // Começa pelo vértice inicial
         visitados.add(inicial); // Marca como visitado
@@ -444,10 +444,10 @@ public class Grafo {
         System.out.println("Busca em Largura (BFS) a partir de: " + nomeInicial);
 
         while(!fila.isEmpty()){ // Enquanto houver vértices na fila
-            Vertice.atual = fila.poll(); // Remove o primeiro vértice da fila
+            Vertice atual = fila.poll(); // Remove o primeiro vértice da fila
             System.out.println(atual.getNome() + " "); // Exibe o vértice visitado
 
-            for(Vertice visinho: getVizinhos(atual)){ // Percorre os vizinhos do vértice
+            for(Vertice vizinho: getVizinhos(atual)){ // Percorre os vizinhos do vértice
                 if(!visitados.contains(vizinho)){ // Se ainda não foi visitado
                     visitados.add(vizinho); // Marca como visitado
                     fila.add(vizinho); // Adiciona na fila para futura exploração
