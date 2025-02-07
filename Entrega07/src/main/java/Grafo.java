@@ -460,5 +460,31 @@ public class Grafo {
         System.out.println(); // Quebra de linha para formatação da saída
     }
 
+    public void buscaEmProfundidade(String nomeInicial){
+        Vertice inicial = buscarVertice(nomeInicial); // Busca o vértice inicial pelo nome
+        if(inicial == null){
+            System.out.println("Vértice inicial nao encontrado.");
+            return;
+        }
+
+        Set<Vertice> visitados = new HashSet<>(); // Conjunto para armazenar vértices visitados
+
+        System.out.println("Busca em Profundidade (DFS) a partir de:" + nomeInicial);
+        dfsRecursivo(inicial, visitados); // Chamada do método recursivo
+        System.out.println(); // Quebra de linha para formatação da saída
+    }
+
+    private void dfsRecursivo(Vertice vertice, Set<Vertice> visitados){
+        visitados.add(vertice); // Marca o vértice como visitado
+        System.out.println(vertice.getNome() + " "); // Exibe o vértice visitado
+
+        for(Vertice vizinho : getVizinhos(vertice)){ // Percorre os vizinhos do vértice atual
+            if(!visitados.contains(vizinho)){ // Se ainda não foi visitado
+                dfsRecursivo(vizinho, visitados); // Chamada recursiva para explorar o vizinho
+            }
+
+        }
+    }
+
 
 }
