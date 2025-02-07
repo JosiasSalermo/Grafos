@@ -352,7 +352,6 @@ public class Grafo {
         return agm;
     }
 
-
     public List<Aresta> algoritmoKruskal(){
         List<Aresta> agm = new ArrayList<>();
         UnionFind unionFind = new UnionFind(vertices.size());
@@ -419,7 +418,6 @@ public class Grafo {
         return valorado;
     }
 
-
     public List<Vertice> getVizinhos(Vertice vertice) {
         List<Vertice> vizinhos = new ArrayList<>();
         for (Aresta aresta : arestas) {
@@ -428,6 +426,38 @@ public class Grafo {
             }
         }
         return vizinhos;
+    }
+
+    public void buscaEmLargura(String nomeInicial){
+        Vertice inicial = buscarVertice(nomeInicial); // Busca o vértice inicial pelo nome
+        if(inicial == null){
+            System.out.println("Vértice inicil não encontrado.");
+            return ;
+        }
+
+        Set<Vertice> visitados new HashSet<>(); // Conjunto para armazenar vértices visitados
+        Queue<Vertice> fila = new LinkdList<>(); // Fila para a ordem de exploração (FIFO)
+
+        fila.add(inicial); // Começa pelo vértice inicial
+        visitados.add(inicial); // Marca como visitado
+
+        System.out.println("Busca em Largura (BFS) a partir de: " + nomeInicial);
+
+        while(!fila.isEmpty()){ // Enquanto houver vértices na fila
+            Vertice.atual = fila.poll(); // Remove o primeiro vértice da fila
+            System.out.println(atual.getNome() + " "); // Exibe o vértice visitado
+
+            for(Vertice visinho: getVizinhos(atual)){ // Percorre os vizinhos do vértice
+                if(!visitados.contains(vizinho)){ // Se ainda não foi visitado
+                    visitados.add(vizinho); // Marca como visitado
+                    fila.add(vizinho); // Adiciona na fila para futura exploração
+
+                }
+
+            }
+
+        }
+        System.out.println(); // Quebra de linha para formatação da saída
     }
 
 
