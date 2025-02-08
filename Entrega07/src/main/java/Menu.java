@@ -21,7 +21,7 @@ public class Menu {
             System.out.println("0 - Sair");
             System.out.println("Escolha uma opção:");
 
-            if(!scanner.hasNextInt()){ // Entrega 05
+            if(!scanner.hasNextInt()){
                 System.out.println("Por Favor, insira um número válido.");
                 scanner.next();
                 continue;
@@ -59,6 +59,7 @@ public class Menu {
             System.out.println("3 - [1.3]Salvar Grafo");
             System.out.println("4 - [1.4]Operações com Grafos");
             System.out.println("5 - [1.5]Problemas");
+            System.out.println("6 - [1.6]Visualizar Grafo");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
@@ -69,7 +70,8 @@ public class Menu {
                 case 2 -> informacoesGrafo();
                 case 3 -> salvarGrafo();
                 case 4 -> operacoesGrafo();
-                case 5 -> menuProblemas(); // Entrega 05
+                case 5 -> menuProblemas();
+                case 6 -> visualizarGrafo();
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
 
@@ -357,6 +359,9 @@ public class Menu {
         do {
             System.out.println("[1.5]PROBLEMAS:");
             System.out.println("1 - [1.5.1]Caminho Mínimo");
+            System.out.println("2 - [1.5.2]Árvore Geradora");
+            System.out.println("3 - [1.5.3]Grafo Reduzido (Malgrange)");
+            System.out.println("4 - [1.5.4]Busca em Grafo");
             System.out.println("0 - Voltar");
             System.out.println("Escolha uma opção:");
             opcao = scanner.nextInt();
@@ -364,6 +369,9 @@ public class Menu {
 
             switch (opcao) {
                 case 1 -> caminhoMinimo();
+                case 2 -> menuArvoreGeradora();
+                case 3 -> executarGrafoReduzido();
+                case 4 -> menuBuscaGrafo();
                 case 0 -> System.out.println("Voltando...");
                 default -> System.out.println("Opção inválida!");
             }
@@ -496,6 +504,33 @@ public class Menu {
         grafoAtual.buscaEmProfundidade(verticeInicial);
     }
 
+    private void menuBuscaGrafo(){
+        int opcao;
+        do{
+            System.out.println("[1.5.4]BUSCA EM GRAFO:");
+            System.out.println("1 - [1.5.4.1]Busca em Largura (BFS)");
+            System.out.println("2 - [1.5.4.2]Busca em Profundidade (DFS)");
+            System.out.println("0 - Voltar");
+            System.out.println("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> executarbuscaEmLargura();
+                case 2 -> executarBuscaEmProfundidade();
+                case 0 -> System.out.println("Voltando...");
+                default -> System.out.println("Opção inválida!");
+            }
+        }while(opcao != 0);
+    }
+
+    private void executarGrafoReduzido(){
+        System.out.println("Executando Grafo Reduzido (Malgrange)...");
+        List<List<Vertice>> componentes = Malgrange.grafoReduzido(grafoAtual);
+        for(List<Vertice> componente : componentes){
+            System.out.println("Componente Fortemente Conexo: " + componente);
+        }
+    }
 
 
 
